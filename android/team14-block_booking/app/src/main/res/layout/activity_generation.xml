@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/content"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/travel">
+    <LinearLayout
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First, create your Block Booking wallet!"
+            android:textAlignment="center"
+            android:textColor="#b41a1a1a"
+            android:textStyle="italic"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="#b4ffffff"
+            android:hint="@string/textview_password"
+            android:inputType="textPassword"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/generate_wallet_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#870404"
+            android:padding="16dp"
+            android:text="@string/textview_generate_wallet"
+            android:textColor="@color/hard_white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="or Load in existing wallet"
+            android:textAlignment="center"
+            android:textColor="#56b612"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/exist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/textview_account_address"
+            android:textAlignment="center"
+            android:textColor="#5c2d2d"
+            android:id="@+id/address"/>
+        <Button
+            android:id="@+id/good_to_go_butt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#870404"
+            android:padding="16dp"
+            android:text="Let's Go!"
+            android:textColor="@color/hard_white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+</FrameLayout>
