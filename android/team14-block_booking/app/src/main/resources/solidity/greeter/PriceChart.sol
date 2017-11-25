@@ -4,11 +4,8 @@ contract PriceChart {
   address public owner;
   bytes utilName;
   uint[] utilPrice;
-  uint utilCount = 2;
-  uint basePrice = 12000;
-  utilName.push("tv");  utilPrice.push(200);
-  utilName.push("aircon");  utilPrice.push(2000);
-
+  uint utilCount = 0;
+  uint basePrice;
 
   modifier onlyOwner() {
     require(msg.sender == owner);

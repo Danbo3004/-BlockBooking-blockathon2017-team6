@@ -48,7 +48,7 @@ public class GenerationPresenter implements com.github.onefour.blockbooking.Gene
                                 d.getWalletName());
                 mWalletGenerationView.showGeneratedWallet(credentials.getAddress());
                 Log.e("TAG", "generateWallet: " + credentials.getAddress() + " " + credentials.getEcKeyPair().getPublicKey());
-
+            Log.d("ADDRESS_PC",credentials.getAddress() + " "+password);
         } catch (NoSuchAlgorithmException
                 | NoSuchProviderException
                 | InvalidAlgorithmParameterException

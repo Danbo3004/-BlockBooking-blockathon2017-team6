@@ -5,70 +5,264 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.github.onefour.blockbooking.com.github.onefour.blockbooking.Detail"
+    tools:context="com.github.onefour.blockbooking.Detail"
     tools:showIn="@layout/activity_detail">
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose your Block Booking type:"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:paddingTop="14dp"
-            android:textStyle="italic"
-            android:textColor="@color/colorAccent"/>
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:id="@+id/booking">
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose your Block Booking type:"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:paddingTop="14dp"
+                android:textStyle="italic"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/narrator"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:id="@+id/booking">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:text="Full\n800,000 VND"
-                android:textColor="@color/hard_white"
-                android:background="@color/colorAccent"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"/>
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:text="Basic\n200,000 VND"
-                android:textStyle="bold"
-                android:textColor="@color/hard_white"
-                android:background="@color/colorPrimaryDark"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/basic"
-                />
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:text="Options\n200,000 + VND"
-                android:textColor="@color/hard_white"
-                android:background="@color/colorPrimary"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:textStyle="bold"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:text="Full\n800,000 VND"
+                        android:textColor="@color/hard_white"
+                        android:background="@color/colorAccent"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/full"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:text="Basic\n500,000 VND"
+                        android:textStyle="bold"
+                        android:textColor="@color/hard_white"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:id="@+id/basic"
+                        />
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:text="Options\n100,000 + VND"
+                        android:textColor="@color/hard_white"
+                        android:background="#2836d4"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textStyle="bold"
+                        android:id="@+id/options"/>
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"
+                    android:text="I am heading there!"
+                    android:textSize="30sp"
+                    android:textColor="@color/hard_white"
+                    android:textAllCaps="false"
+                    android:visibility="gone"
+                    android:id="@+id/heading"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Contract Confirmed!"
+                    android:textSize="30sp"
+                    android:textColor="@color/hard_white"
+                    android:visibility="gone"
+                    android:id="@+id/staying"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000"
+                    android:text="Contract Complete!"
+                    android:textAllCaps="false"
+                    android:textSize="30sp"
+                    android:textColor="@color/hard_white"
+                    android:visibility="gone"
+                    android:id="@+id/left"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:text="@string/large_text" />
         </LinearLayout>
-        <TextView
+        <android.support.v7.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:id="@+id/full_quest"
+            android:elevation="8dp"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/quest"
+                    android:text="You booked FULL?"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorAccent"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/yes_full"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:id="@+id/no_full"/>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:id="@+id/basic_quest"
+            android:elevation="8dp"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You booked BASIC?"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/yes_basic"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:id="@+id/no_basic"/>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:elevation="8dp"
+            android:id="@+id/radio_quest"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ti vi, 7 eth"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Điều hòa, 6 eth"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tủ lạnh, 8 eth"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quạt, 5 eth"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nước nóng, 6 eth"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CANCEl"
+                        android:id="@+id/no_radio"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CONFIRM"
+                        android:id="@+id/yes_radio"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/large_text" />
-    </LinearLayout>
-
+            android:orientation="vertical"
+            android:id="@+id/done"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contract Signed!"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"/>
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/tick"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </FrameLayout>
 
 </android.support.v4.widget.NestedScrollView>

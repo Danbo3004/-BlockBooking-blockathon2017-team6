@@ -17,5 +17,6 @@ public class DataCons {
     public static final String ID = "id";
     public static final String PASSWORD = "password";
     public static final String WALLET_NAME = "walletname";
+    public static final String CONTRACT_ADDRESS_RINKEBY = "0x9bbda44bbf1f3297133c7df5fc884dc9ab68b6f68fb3e76fba4204d62447f3b7";
 
 }
