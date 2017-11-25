@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.0;
 
 import "./PriceChart.sol";
 
@@ -11,7 +11,7 @@ contract Purchase {
 
   enum State { Created, Locked, Inactive }
   State public state;
-  function Purchase(address _priceChart, bytes _utilName) payable {
+  function Purchase(address _priceChart) payable {
     chart = PriceChart(_priceChart);
     buyer = msg.sender;
     seller = chart.getOwnerAddress();
@@ -39,7 +39,7 @@ contract Purchase {
   //Abort before arrive
   event Aborted();
   //buy more ultility
-  event BuyMore(uint index);
+  event BuyMore(bytes1 name);
   //purchase after the door has been unlock
   event PurchaseConfirmed();
   ///event need to inform options: open the door, unlock utils
@@ -75,7 +75,7 @@ contract Purchase {
   payable
   {
     require(chart.getPrice(index) == msg.value);
-    BuyMore(index);
+    BuyMore(chart.getName(index));
     price += msg.value;
   }
   /// Confirm that you (the buyer) received the item.

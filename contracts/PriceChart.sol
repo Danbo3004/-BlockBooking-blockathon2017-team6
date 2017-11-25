@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.0;
 
 contract PriceChart {
   address public owner;
@@ -6,9 +6,6 @@ contract PriceChart {
   uint[] utilPrice;
   uint utilCount = 0;
   uint basePrice;
-  function PriceChart() {
-    owner = msg.sender;
-  }
 
   modifier onlyOwner() {
     require(msg.sender == owner);
@@ -16,6 +13,7 @@ contract PriceChart {
   }
 
   function PriceChart(uint _basePrice) {
+    owner = msg.sender;
     basePrice = _basePrice;
   }
 

@@ -1,23 +1,87 @@
-Web3 = require('web3')
+var ethereumjsWallet = require('ethereumjs-wallet');
+
+var ProviderEngine = require("web3-provider-engine");
+
+var WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
+
+var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
+
+var Web3 = require("web3");
+
+var FilterSubprovider = require('web3-provider-engine/subproviders/filters.js');
+
+
+
+// replace with your private key
+
+var privateKey = "074036273fb9a3b32e40b6719b8bdc68593574fc4b4436fec078027d82897e14";
+
+
+
+// create wallet from existing private key
+
+var wallet = ethereumjsWallet.fromPrivateKey(new Buffer(privateKey, "hex"));
+
+var address = "0x" + wallet.getAddress().toString("hex");
+
+
+
+// using ropsten testnet
+
+var providerUrl = "http://www.blockathon.asia:8545/";
+
+var engine = new ProviderEngine();
+
+
+
+// filters
+
+engine.addProvider(new FilterSubprovider());
+
+engine.addProvider(new WalletSubprovider(wallet, {}));
+
+engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl)));
+
+engine.on('error', function(err) {
+
+  // report connectivity errors
+
+  console.error(err.stack)
+
+})
+
+engine.start();
+
+
+
+// See <http://truffleframework.com/docs/advanced/configuration>
+
+// to customize your Truffle configuration!
+
 module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // to customize your Truffle configuration!
-  rpc: {
-      host: 'localhost',
+
+  networks: {
+
+    development: {
+
+      host: "localhost",
+
       port: 8545,
-  },
-   networks: {
-     development: {
-       host: 'localhost',
-       port: 8545,
-       network_id: '*' // Match any network id
-     },
-     rinkeby: {
-       network_id: 4,
-       //host: 'www.blockathon.asia',//'162.255.119.203',
-       //port: 8545,
-       provider: new Web3.providers.HttpProvider('http://www.blockathon.asia:8545'),
-       from: 0x219c11D56C823642cA4c639b57d465F05aEc83F6
-     }
-   }
+
+      network_id: "*" // Match any network id
+
+    },
+
+    rinkeby: {
+
+      from: address,
+
+      provider: engine,
+
+      network_id: 4
+
+    }
+
+  }
+
 };
