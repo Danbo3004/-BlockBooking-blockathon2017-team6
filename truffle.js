@@ -1,8 +1,8 @@
+Web3 = require('web3')
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
   rpc: {
-      // Use the default host and port when not using rinkeby
       host: 'localhost',
       port: 8545,
   },
@@ -14,9 +14,10 @@ module.exports = {
      },
      rinkeby: {
        network_id: 4,
-       host: "http://www.blockathon.asia:8545/",
-       port: 8545,
-       gas: 4000000
+       //host: 'www.blockathon.asia',//'162.255.119.203',
+       //port: 8545,
+       provider: new Web3.providers.HttpProvider('http://www.blockathon.asia:8545'),
+       from: 0x219c11D56C823642cA4c639b57d465F05aEc83F6
      }
    }
 };
