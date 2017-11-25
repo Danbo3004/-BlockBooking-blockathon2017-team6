@@ -14,9 +14,11 @@ import com.Purchase_sol_PriceChart;
 import com.Purchase_sol_Purchase;
 
 import org.web3j.crypto.Credentials;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.Web3jFactory;
+import org.web3j.protocol.admin.Admin;
+import org.web3j.protocol.admin.AdminFactory;
+import org.web3j.protocol.admin.methods.response.NewAccountIdentifier;
 import org.web3j.protocol.core.RemoteCall;
+import org.web3j.protocol.core.Request;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.Contract;
 
@@ -39,9 +41,9 @@ public class Detail extends AppCompatActivity{
                 "/me/UTC--2017-11-25T09-47-35.515Z--199757fcaacd6877400b94de949f92b24df333a1");
         Toast.makeText(this,pathhh.length()+"",Toast.LENGTH_LONG).show();
 
-        //final Admin web3j = AdminFactory.build(new HttpService("http://www.blockathon.asia:8545"));
+        final Admin web3j = AdminFactory.build(new HttpService("http://www.blockathon.asia:8545"));
 
-        final Web3j web3j = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/cn5K9sjky3BpCrTPxnru"));
+        //final Web3j web3j = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/cn5K9sjky3BpCrTPxnru"));
         //final Web3j web3j = Web3jFactory.build(new HttpService());
 
         final View includedLayout = findViewById(R.id.news_title);
@@ -59,7 +61,7 @@ public class Detail extends AppCompatActivity{
                 //    pathh.mkdir();
                 //}
                 //DBHelper d = new DBHelper(Detail.this, DataCons.DATABASE_NAME);
-                //Request<?, NewAccountIdentifier> acc =  web3j.personalNewAccount("!@superpassword")
+                Request<?, NewAccountIdentifier> acc =  web3j.personalNewAccount("!@superpassword");
                 //PersonalUnlockAccount acc = null;
                 //try {
                 //    acc = web3j.personalUnlockAccount("5ad558987acfdba1f3e0f7aa4790fe264353b451", "passphrase",BigInteger.valueOf(3600)).send();
